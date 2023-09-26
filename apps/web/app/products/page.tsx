@@ -1,10 +1,10 @@
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
-import { cookies } from 'next/headers'
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 
 export default async function ProductsPage() {
-  const supabase = createServerComponentClient({ cookies })
+  const supabase = createServerComponentClient({ cookies });
 
-  const { data: products, error } = await supabase.from("products").select("")
+  const { data: products, error } = await supabase.from("products").select("");
 
   return (
     <div className="relative overflow-x-auto">
@@ -22,16 +22,24 @@ export default async function ProductsPage() {
         <tbody>
           {products?.map((product) => (
             <tr key={product.id} className="bg-gray-50 border-gray-700">
-              <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+              <th
+                scope="row"
+                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+              >
                 {product?.name}
               </th>
               <td className="px-6 py-4 text-right">
-                <a href="#" className="font-medium text-blue-500 hover:underline">Edit</a>
+                <a
+                  href="#"
+                  className="font-medium text-blue-500 hover:underline"
+                >
+                  Edit
+                </a>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
-  )
+  );
 }

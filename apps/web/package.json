@@ -12,11 +12,13 @@
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
+    "@nextui-org/react": "^2.1.13",
     "@supabase/auth-helpers-nextjs": "^0.8.1",
     "@supabase/supabase-js": "^2.34.0",
-    "next": "^13.4.19",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "framer-motion": "^10.16.4",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
     "ui": "*"
   },
   "devDependencies": {
@@ -26,6 +28,7 @@
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
     "autoprefixer": "^10.4.15",
+    "eslint": "^8.50.0",
     "eslint-config-custom": "*",
     "postcss": "^8.4.30",
     "supabase": "^1.99.5",

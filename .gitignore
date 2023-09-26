@@ -2,9 +2,7 @@
 
 # dependencies
 node_modules
-.pnp
-.pnp.cjs
-.pnp.loader.mjs
+.pnp.*
 .yarn
 
 # testing

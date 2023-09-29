@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactElement } from 'react';
 import { Fragment } from 'react';
 import Link from "next/link";
 import Image from 'next/image';
@@ -23,7 +24,7 @@ function classNames(...classes): string {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Navbar({ session }: { session: Session | null }): React.ReactNode {
+export default function Navbar({ session }: { session: Session | null }): ReactElement {
   const pathname = usePathname();
   const userLinks = session?.user
     ? userNavigation.filter((link) => link.name !== "Login")

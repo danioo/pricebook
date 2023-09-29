@@ -1,9 +1,11 @@
+import type { ReactElement } from "react";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import Link from "next/link";
+import type { Database } from "../database.types";
 
-export default async function Example() {
-  const supabase = createServerComponentClient({ cookies });
+export default async function Example(): Promise<ReactElement> {
+  const supabase = createServerComponentClient<Database>({ cookies });
 
   const { data: prices } = await supabase
     .from("prices_view")

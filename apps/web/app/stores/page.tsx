@@ -1,10 +1,12 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import type { ReactElement } from "react";
+import type { Database } from "../../database.types";
 
-export default async function StoresPage() {
-  const supabase = createServerComponentClient({ cookies });
+export default async function StoresPage(): Promise<ReactElement> {
+  const supabase = createServerComponentClient<Database>({ cookies });
 
-  const { data: stores } = await supabase.from("stores").select("");
+  const { data: stores } = await supabase.from("stores").select();
 
   return (
     <div className="relative overflow-x-auto">
@@ -29,12 +31,12 @@ export default async function StoresPage() {
                 {store.name}
               </th>
               <td className="px-6 py-4 text-right">
-                <a
+                {/* <a
                   className="font-medium text-blue-500 hover:underline"
                   href="#"
                 >
                   Edit
-                </a>
+                </a> */}
               </td>
             </tr>
           ))}

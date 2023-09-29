@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import type { ReactElement } from "react";
 import "./globals.css";
 import type { Database } from "../database.types";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar";
 
 export const metadata: Metadata = {
   title: "Pricebook",
@@ -14,7 +15,7 @@ export default async function Template({
   children,
 }: {
   children: React.ReactNode;
-}) {
+}): Promise<ReactElement> {
   const supabase = createServerComponentClient<Database>({ cookies });
   const {
     data: { session },

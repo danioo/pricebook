@@ -1,12 +1,14 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import type { ReactElement } from "react";
+import type { Database } from "../../database.types";
 
-export default async function PricesPage() {
-  const supabase = createServerComponentClient({ cookies });
+export default async function PricesPage(): Promise<ReactElement> {
+  const supabase = createServerComponentClient<Database>({ cookies });
 
   const { data: prices } = await supabase
     .from("prices")
-    .select("price, stores(name), products(name)");
+    .select("id, price, stores(name), products(name)");
 
   return (
     <div className="relative overflow-x-auto">
@@ -19,7 +21,7 @@ export default async function PricesPage() {
             <th className="px-6 py-3" scope="col">
               <div className="flex items-center">
                 Store
-                <a href="#">
+                {/* <a href="#">
                   <svg
                     aria-hidden="true"
                     className="w-3 h-3 ml-1.5"
@@ -29,13 +31,13 @@ export default async function PricesPage() {
                   >
                     <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z" />
                   </svg>
-                </a>
+                </a> */}
               </div>
             </th>
             <th className="px-6 py-3" scope="col">
               <div className="flex items-center">
                 Price
-                <a href="#">
+                {/* <a href="#">
                   <svg
                     aria-hidden="true"
                     className="w-3 h-3 ml-1.5"
@@ -45,7 +47,7 @@ export default async function PricesPage() {
                   >
                     <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z" />
                   </svg>
-                </a>
+                </a> */}
               </div>
             </th>
             <th className="px-6 py-3" scope="col">
@@ -60,17 +62,17 @@ export default async function PricesPage() {
                 className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                 scope="row"
               >
-                {price.products.name}
+                {price.products?.name}
               </th>
-              <td className="px-6 py-4">{price.stores.name}</td>
+              <td className="px-6 py-4">{price.stores?.name}</td>
               <td className="px-6 py-4">{price.price}</td>
               <td className="px-6 py-4 text-right">
-                <a
+                {/* <a
                   className="font-medium text-blue-500 hover:underline"
                   href="#"
                 >
                   Edit
-                </a>
+                </a> */}
               </td>
             </tr>
           ))}

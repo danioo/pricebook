@@ -1,9 +1,7 @@
 import Stats from "../components/Stats";
 
-export default async function Page(): JSX.Element {
+export default function Page(): JSX.Element {
   return (
-    <>
-      <Stats />
-    </>
+    <Stats />
   );
 }

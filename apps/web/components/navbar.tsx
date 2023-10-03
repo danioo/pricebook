@@ -3,7 +3,6 @@
 import type { ReactElement } from 'react';
 import { Fragment } from 'react';
 import Link from "next/link";
-import Image from 'next/image';
 import { usePathname } from "next/navigation";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -39,7 +38,7 @@ export default function Navbar({ session }: { session: Session | null }): ReactE
               <div className="flex items-center">
                 <div className="flex-shrink-0">
                   <Link href="/">
-                    <Image
+                    <img
                       alt="Your Company"
                       className="h-8 w-8"
                       src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
